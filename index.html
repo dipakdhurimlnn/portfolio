@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dipak Dhuri - Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        scroll-behavior: smooth;
+        background-color: #f5f5f5; /* Light gray background for a soothing effect */
+        color: #333; /* Dark text for readability */
+      }
+
+      header {
+        background: linear-gradient(
+          to right,
+          #a7c7e7,
+          #b2d8b5
+        ); /* Soft blue to mint green gradient */
+        color: #fff;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .skill-card,
+      .project-card {
+        transition: transform 0.3s ease;
+        background-color: #fff; /* White background for cards */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card depth */
+      }
+
+      .skill-card:hover,
+      .project-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Hover effect with shadow */
+      }
+
+      footer {
+        background-color: #212529;
+        color: #fff;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: -75px;
+      }
+
+      /* Styling for navbar */
+      .navbar {
+        background-color: #333; /* Dark background for navbar */
+      }
+
+      .navbar-nav .nav-link {
+        color: #fff !important;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: #a8d5ba !important; /* Mint green hover effect */
+      }
+
+      .card {
+        background-color: #fff; /* White background for cards */
+      }
+
+      .section-title {
+        color: #b2d8b5; /* Soft green for titles */
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top mb-5">
+      <div class="container">
+        <a class="navbar-brand" href="#">Dipak Dhuri</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="text-white text-center py-5">
+      <div class="container">
+        <img src="profile.jpg" alt="Dipak Dhuri" class="profile-img mb-3" />
+        <h1 class="display-4" data-aos="fade-down">Hi, I'm Dipak Dhuri</h1>
+        <p class="lead" data-aos="fade-up">
+          Full Stack Developer | Java | Angular | Spring Boot | PostgreSQL
+        </p>
+      </div>
+    </header>
+
+    <section id="about" class="container my-5" data-aos="fade-up">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        Dynamic & results-oriented Software Developer with 3+ years of
+        experience in full-stack development. Passionate about creating scalable
+        web apps, optimizing back-end systems, and delivering seamless user
+        experiences with modern tech stacks.
+      </p>
+    </section>
+
+    <section id="skills" class="bg-light py-5">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Skills</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card skill-card p-3">
+              <h5>Languages</h5>
+              <p>Java, JavaScript, C++, SQL</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card skill-card p-3">
+              <h5>Frameworks</h5>
+              <p>Angular, Spring Boot</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card skill-card p-3">
+              <h5>Tools & Platforms</h5>
+              <p>Git, Docker, AWS, Postman, Jira</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="container my-5" data-aos="fade-up">
+      <h2 class="section-title">Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card project-card p-3 shadow-sm">
+            <h5>Insurance Broker App</h5>
+            <p>
+              Built dashboards, integrated JWT authentication, and optimized
+              backend APIs for better performance.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card p-3 shadow-sm">
+            <h5>IP Management System</h5>
+            <p>
+              Patent bidding and database system with real-time data
+              visualization and microservices architecture.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card p-3 shadow-sm">
+            <h5>Alumni Connect App</h5>
+            <p>
+              Social platform built with Angular and Nodejs for alumni
+              interaction and session management.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="bg-light py-5">
+      <div class="container" data-aos="fade-up">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="card p-4 shadow-sm">
+          <h5>Xcaliber Infotech Pvt. Ltd., Pune</h5>
+          <p><em>Software Developer (Dec 2021 – Present)</em></p>
+          <ul>
+            <li>Developed dynamic web apps using Angular, Bootstrap, Java.</li>
+            <li>Integrated RESTful APIs & JWT-based Spring Security auth.</li>
+            <li>Created Excel/PDF reports using Apache POI and iTextPDF.</li>
+            <li>Optimized APIs and mentored juniors in Agile development.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container my-5" data-aos="fade-up">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:dipakdhurimlnn@gmail.com">dipakdhurimlnn@gmail.com</a>
+      </p>
+      <p><strong>Phone:</strong> +91-9075968482</p>
+      <p>
+        <strong>LinkedIn:</strong>
+        <a
+          href="https://www.linkedin.com/in/dipak-dhuri-08067914b/"
+          target="_blank"
+          >linkedin.com/in/dipak-dhuri</a
+        >
+      </p>
+      <!-- <p>
+        <strong>GitHub:</strong>
+        <a href="https://github.com/dipakdhurimlnn" target="_blank"
+          >github.com/dipakdhurimlnn</a
+        >
+      </p> -->
+    </section>
+
+    <footer class="text-white text-center py-3">
+      &copy; 2025 Dipak Dhuri. Built with ❤️ using Bootstrap 5.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
