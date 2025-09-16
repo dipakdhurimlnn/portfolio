@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dipak Dhuri - Portfolio</title>
     <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
@@ -22,11 +26,21 @@
 
     <style>
       body {
+        font-family: "Open Sans", sans-serif;
         scroll-behavior: smooth;
         background-color: #f5f5f5; /* Light gray background for a soothing effect */
         color: #333; /* Dark text for readability */
       }
 
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Hero Section */
       header {
         background: linear-gradient(
           to right,
@@ -34,27 +48,59 @@
           #b2d8b5
         ); /* Soft blue to mint green gradient */
         color: #fff;
-      }
-
-      .section-title {
         text-align: center;
-        margin-bottom: 40px;
-        font-weight: bold;
-        color: #333;
+        padding: 100px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://www.transparenttextures.com/patterns/cubes.png");
+        opacity: 0.2;
       }
 
-      .skill-card,
+      header h1 {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        position: relative;
+        z-index: 1;
+      }
+      header p {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Projects */
       .project-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
         transition: transform 0.3s ease;
-        background-color: #fff; /* White background for cards */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card depth */
+        min-height: 16vh;
+      }
+      .project-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.05);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+      .project-card:hover::after {
+        opacity: 1;
       }
 
-      .skill-card:hover,
-      .project-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Hover effect with shadow */
-      }
+      /* Footer */
 
       footer {
         background-color: #212529;
@@ -71,179 +117,231 @@
         margin-top: -75px;
       }
 
-      /* Styling for navbar */
-      .navbar {
-        background-color: #333; /* Dark background for navbar */
-      }
-
+      /* Navbar */
       .navbar-nav .nav-link {
-        color: #fff !important;
+        position: relative;
+        transition: color 0.3s ease;
       }
-
-      .navbar-nav .nav-link:hover {
-        color: #a8d5ba !important; /* Mint green hover effect */
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #a8d5ba;
+        transition: width 0.3s ease;
+      }
+      .navbar-nav .nav-link:hover::after {
+        width: 100%;
       }
 
       .card {
         background-color: #fff; /* White background for cards */
       }
 
-      .section-title {
-        color: #b2d8b5; /* Soft green for titles */
+      /* Experience */
+      #experience ul {
+        list-style: none;
+        padding-left: 0; /* remove space */
+        border-left: none; /* remove vertical line */
+      }
+      #experience li {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 25px; /* space for ✔ */
+      }
+      #experience li::before {
+        content: "✔";
+        position: absolute;
+        left: 0;
+        color: #99bcdd;
+        font-weight: bold;
       }
 
+      /* Scroll-to-Top */
       #scrollToTopBtn {
-        display: none; /* Initially hidden */
-        font-size: 1.5rem;
-        padding: 15px;
-        z-index: 1000; /* Ensure it's on top of other elements */
-        transition: all 0.3s ease;
-      }
-
-      #scrollToTopBtn:hover {
-        background-color: #0056b3; /* Darker blue on hover */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: none;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        border: none;
+        border-radius: 50%;
+        padding: 12px 16px;
+        color: white;
         cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+      }
+      #scrollToTopBtn:hover {
+        transform: scale(1.1);
       }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark sticky-top mb-5">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Dipak Dhuri</a>
-    
-        <ul class="navbar-nav flex-row ms-auto align-items-center">
-          <li class="nav-item px-2">
-            <a class="nav-link text-white" href="#about">About</a>
-          </li>
-          <li class="nav-item px-2">
-            <a class="nav-link text-white" href="#skills">Skills</a>
-          </li>
-          <li class="nav-item px-2">
-            <a class="nav-link text-white" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item px-2">
-            <a class="nav-link text-white" href="#experience">Experience</a>
-          </li>
-          <li class="nav-item px-2">
-            <a class="nav-link text-white" href="#contact">Contact</a>
-          </li>
-          <li class="nav-item px-2 d-none d-md-block">
-            <a
-              class="btn btn-light rounded-pill shadow-sm py-2 px-4"
-              href="assets/Dipak_Dhuri_CV.pdf"
-              target="_blank"
-            >
-              <strong>Resume </strong>
-            </a>
-          </li>
-        </ul>
+        <a class="navbar-brand fw-bold" href="#">MyPortfolio</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="assets/Dipak_Dhuri_CV.pdf"
+                target="_blank"
+              >
+                Resume
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-    
 
-    <header id="about" class="text-white text-center py-5">
+    <header id="about" class="text-white text-center pb-2 mt-5">
       <div class="container">
         <img src="profile.jpg" alt="Dipak Dhuri" class="profile-img mb-3" />
-        <h1 class="display-4" data-aos="fade-down">Hi, I'm Dipak Dhuri</h1>
-        <p class="lead" data-aos="fade-up">
+        <h1 data-aos="fade-down">Hi, I'm Dipak Dhuri 👋</h1>
+        <p data-aos="fade-up">
           Full Stack Developer | Java | Angular | Spring Boot | PostgreSQL
         </p>
       </div>
     </header>
 
-    <section  class="container my-5" data-aos="fade-up">
-      <h2 class="section-title">About Me <i class="fas fa-user me-2" style="color: #99bcdd;"></i></h2>
+    <section class="container my-5" data-aos="fade-up">
+      <h2 class="text-center mb-4">About Me</h2>
       <p>
-        Full-Stack Developer with <strong>3+ years</strong> of experience in designing and developing scalable web 
-applications using <strong>Java 8, Spring Boot, ReactJS and Angular</strong>. Skilled in <strong>microservices 
-architecture </strong>, RESTful APIs, and cloud-based solutions. Expertise in <strong>CI/CD pipelines, 
-authentication mechanisms (OAuth2), Elastic Search and DevOps tools like Docker 
-and Jenkins </strong>. Passionate about building high-performance, secure, and user-friendly 
-applications. 
+        Full-Stack Developer with <strong>3+ years</strong> of experience in
+        designing and developing scalable web applications using
+        <strong>Java 8, Spring Boot, ReactJS and Angular</strong>. Skilled in
+        <strong>microservices architecture </strong>, RESTful APIs, and
+        cloud-based solutions. Expertise in
+        <strong
+          >CI/CD pipelines, authentication mechanisms (OAuth2), Elastic Search
+          and DevOps tools like Docker and Jenkins </strong
+        >. Passionate about building high-performance, secure, and user-friendly
+        applications.
       </p>
     </section>
 
-    <section id="skills" class="bg-light py-5" >
+    <section id="skills" class="bg-light py-5">
       <div class="container" data-aos="fade-up">
-        <h2 class="section-title mb-4">Skills <i class="fas fa-tools me-2" style="color: #99bcdd;"></i></h2>
+        <h2 class="text-center mb-4">Skills</h2>
         <div class="row justify-content-center gy-4">
           <!-- Programming Languages -->
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fab fa-java fa-3x text-primary"></i>
-            <h5 class="mt-2">Java</h5>
+            <p>Java</p>
           </div>
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fab fa-js-square fa-3x text-warning"></i>
-            <h5 class="mt-2">JavaScript</h5>
+            <p>JavaScript</p>
           </div>
-          <div class="  col-6 col-md-4  col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fas fa-database fa-3x text-info"></i>
-            <h5 class="mt-2">SQL</h5>
+            <p>SQL</p>
           </div>
           <!-- Frameworks -->
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fab fa-angular fa-3x text-danger"></i>
-            <h5 class="mt-2">Angular</h5>
+            <p>Angular</p>
           </div>
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fas fa-leaf fa-3x text-success"></i>
-            <h5 class="mt-2">Spring Boot</h5>
-          </div>
-
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
-            <i class="fab fa-node fa-3x text-success"></i>
-            <h5 class="mt-2">NodeJs</h5>
-          </div>
-
-          <div  class="  col-6 col-md-4 col-lg-2 text-center">
-            <i class="fas fa-cogs fa-3x text-success"></i>
-            <h5 class="mt-2">Microservices</h4>
+            <p>Spring Boot</p>
           </div>
 
           <div class="col-6 col-md-4 col-lg-2 text-center">
-            <img src="assets/oauth.svg" alt="OAuth 2.0 Icon" width="48" height="48">
-            <h5 class="mt-2">Oauth 2.0</h5>
+            <i class="fab fa-node fa-3x text-success"></i>
+            <p>NodeJs</p>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2 text-center">
+            <i class="fas fa-cogs fa-3x text-success"></i>
+            <p>Microservices</p>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2 text-center">
+            <img
+              src="assets/oauth.svg"
+              alt="OAuth 2.0 Icon"
+              width="48"
+              height="48"
+            />
+            <p>Oauth 2.0</p>
           </div>
           <!-- Tools -->
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fab fa-git-alt fa-3x text-danger"></i>
-            <h5 class="mt-2">Git</h5>
+            <p>Git</p>
           </div>
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fab fa-docker fa-3x text-primary"></i>
-            <h5 class="mt-2">Docker</h5>
+            <p>Docker</p>
           </div>
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fab fa-aws fa-3x text-warning"></i>
-            <h5 class="mt-2">AWS</h5>
+            <p>AWS</p>
           </div>
           <div class="col-6 col-md-4 col-lg-2 text-center">
-            <img src="assets/microsoft-azure.svg" alt="OAuth 2.0 Icon" width="70" height="48">
-            <h5 class="mt-2">Azure</h5>
+            <img
+              src="assets/microsoft-azure.svg"
+              alt="OAuth 2.0 Icon"
+              width="70"
+              height="48"
+            />
+            <p>Azure</p>
           </div>
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fab fa-jira fa-3x text-info"></i>
-            <h5 class="mt-2">Jira</h5>
+            <p>Jira</p>
           </div>
           <div class="col-6 col-md-4 col-lg-2 text-center">
-            <img src="assets/postman.svg" alt="OAuth 2.0 Icon" width="48" height="48">
-            <h5 class="mt-2">Postman</h5>
+            <img
+              src="assets/postman.svg"
+              alt="OAuth 2.0 Icon"
+              width="48"
+              height="48"
+            />
+            <p>Postman</p>
           </div>
           <!-- Others -->
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fas fa-network-wired fa-3x text-secondary"></i>
-            <h5 class="mt-2">Networking</h5>
+            <p>Networking</p>
           </div>
-          <div class="  col-6 col-md-4 col-lg-2 text-center">
+          <div class="col-6 col-md-4 col-lg-2 text-center">
             <i class="fas fa-laptop-code fa-3x text-muted"></i>
-            <h5 class="mt-2">Shell Scripting</h5>
+            <p>Shell Scripting</p>
           </div>
         </div>
       </div>
     </section>
 
     <section id="projects" class="container my-5" data-aos="fade-up">
-      <h2 class="section-title">Projects <i class="fas fa-laptop-code me-2" style="color: #99bcdd;"></i></h2>
+      <h2 class="text-center mb-4">Projects</h2>
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card project-card p-3 shadow-sm">
@@ -277,34 +375,69 @@ applications.
 
     <section id="experience" class="bg-light py-5">
       <div class="container" data-aos="fade-up">
-        <h2 class="section-title">Work Experience <i class="fas fa-briefcase me-2" style="color: #99bcdd;"></i></h2>
+        <h2 class="text-center mb-4">Work Experience</h2>
         <div class="card p-4 shadow-sm">
           <h5>Xcaliber Infotech Pvt. Ltd., Pune</h5>
           <p><em>Software Developer (Dec 2021 – Present)</em></p>
           <ul>
-            <li><strong> Led frontend development </strong> using Angular and ReactJS, improving page load speed by <strong>25%</strong>
-and enhancing user engagement through optimized UI components.</li>
-            <li>Leveraged <strong>Java 8</strong> features such as <strong>Streams, Lambda expressions, and Optional</strong> to write cleaner, more efficient, and maintainable code.</li>
-            <li><strong> Designed and developed </strong> robust backend systems using <strong> Spring Boot</strong>, implementing RESTful APIs to ensure<strong>  30% faster data processing </strong>between frontend and backend layers</li>
-            <li><strong> Integrated OAuth2 authentication </strong>, improving security and access control for web applications. </li>
-            <li><strong> Refactored a monolithic application </strong> into microservices, enhancing system scalability by<strong>  50%  </strong>and reducing deployment time by <strong> 35%. </strong> </li>
-            <li><strong> Implemented centralized logging & monitoring </strong> using Zipkin, reducing debugging time by <strong> 40%  </strong>and improving issue resolution speed.  </li>
-            <li><strong> Developed CI/CD pipelines </strong>  using Git, Jenkins, and Docker, ensuring <strong> 99.9% </strong> uptime and seamless cloud deployments.  </li>
-            <li><strong> Optimized database queries </strong> for PostgreSQL and MySQL, reducing response time by<strong>  20%.</strong>  </li>
+            <li>
+              <strong> Led frontend development </strong> using Angular and
+              ReactJS, improving page load speed by <strong>25%</strong> and
+              enhancing user engagement through optimized UI components.
+            </li>
+            <li>
+              Leveraged <strong>Java 8</strong> features such as
+              <strong>Streams, Lambda expressions, and Optional</strong> to
+              write cleaner, more efficient, and maintainable code.
+            </li>
+            <li>
+              <strong> Designed and developed </strong> robust backend systems
+              using <strong> Spring Boot</strong>, implementing RESTful APIs to
+              ensure<strong> 30% faster data processing </strong>between
+              frontend and backend layers
+            </li>
+            <li>
+              <strong> Integrated OAuth2 authentication </strong>, improving
+              security and access control for web applications.
+            </li>
+            <li>
+              <strong> Refactored a monolithic application </strong> into
+              microservices, enhancing system scalability by<strong>
+                50% </strong
+              >and reducing deployment time by <strong> 35%. </strong>
+            </li>
+            <li>
+              <strong> Implemented centralized logging & monitoring </strong>
+              using Zipkin, reducing debugging time by <strong> 40% </strong>and
+              improving issue resolution speed.
+            </li>
+            <li>
+              <strong> Developed CI/CD pipelines </strong> using Git, Jenkins,
+              and Docker, ensuring <strong> 99.9% </strong> uptime and seamless
+              cloud deployments.
+            </li>
+            <li>
+              <strong> Optimized database queries </strong> for PostgreSQL and
+              MySQL, reducing response time by<strong> 20%.</strong>
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="container my-5" data-aos="fade-up">
-      <h2 class="section-title">Contact <i class="fas fa-envelope me-2" style="color: #99bcdd;"></i></h2>
+    <section
+      id="contact"
+      class="py-3 bg-dark text-light text-center"
+      data-aos="fade-up"
+    >
+      <h2 class="text-center mb-4">Contact</h2>
       <p>
-        <strong>Email:</strong>
+        Email:
         <a href="mailto:dipakdhurimlnn@gmail.com">dipakdhurimlnn@gmail.com</a>
       </p>
-      <p><strong>Phone:</strong> +91-9075968482</p>
+      <p>Phone: +91-9075968482</p>
       <p>
-        <strong>LinkedIn:</strong>
+        LinkedIn:
         <a
           href="https://www.linkedin.com/in/dipak-dhuri-08067914b/"
           target="_blank"
@@ -319,16 +452,19 @@ and enhancing user engagement through optimized UI components.</li>
       </p> -->
     </section>
 
-    <a  id="resume"
-              class="btn rounded-pill shadow-sm py-2 px-4 position-fixed top-0 start-0 d-md-none"
-              href="assets/Dipak_Dhuri_CV.pdf"
-              target="_blank" 
-              style="background-color: #b2d8b5 !important;
-              color: #212529 !important;
-              margin-top: 100px;"
-            >
-              <strong>Resume </strong>
-            </a>
+    <a
+      id="resume"
+      class="btn rounded-pill shadow-sm py-2 px-4 position-fixed top-0 start-0 d-md-none"
+      href="assets/Dipak_Dhuri_CV.pdf"
+      target="_blank"
+      style="
+        background-color: #b2d8b5 !important;
+        color: #212529 !important;
+        margin-top: 100px;
+      "
+    >
+      <strong>Resume </strong>
+    </a>
 
     <button
       id="scrollToTopBtn"
@@ -367,7 +503,6 @@ and enhancing user engagement through optimized UI components.</li>
           scrollTopBtn.style.display = "none";
         }
       };
-
 
       // When the user clicks on the button, scroll to the top of the document
       scrollTopBtn.onclick = function () {
